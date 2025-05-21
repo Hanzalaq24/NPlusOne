@@ -11,6 +11,7 @@ const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [scrollDirection, setScrollDirection] = useState('none');
   const [prevScrollY, setPrevScrollY] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,9 +56,13 @@ const Header = () => {
     console.log('Search for:', searchQuery);
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   // Header background style with transparency when not scrolled or hovered
   const headerStyle = {
-    backgroundColor: isScrolled || isHovered ? 'rgb(35, 31, 30)' : 'transparent',
+    backgroundColor: isScrolled || isHovered || mobileMenuOpen ? 'rgb(35, 31, 30)' : 'transparent',
     transition: 'background-color 0.3s ease-in-out, transform 0.3s ease-in-out',
     transform: scrollDirection === 'up' && isScrolled ? 'translateY(-100%)' : 'translateY(0)'
   };
@@ -79,7 +84,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <div className="w-48 h-48 relative">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 relative">
                 <Image 
                   src="/images/logo.svg" 
                   alt="NPlusOne Logo" 
@@ -91,8 +96,28 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              type="button"
+              className="text-white hover:text-gray-300 focus:outline-none"
+              onClick={toggleMobileMenu}
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            >
+              {mobileMenuOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              )}
+            </button>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {/* TSHIRT */}
             <div 
               className="relative group"
@@ -382,54 +407,108 @@ const Header = () => {
             </div>
           </nav>
 
-          {/* Right section: Search, account, wishlist, cart */}
-          <div className="flex items-center space-x-4">
-            {/* Search form */}
-            <form onSubmit={handleSearchSubmit} className="hidden md:flex items-center bg-white bg-opacity-10 rounded-full px-3 py-1">
-              <input 
-                type="text" 
-                placeholder="Search..." 
-                value={searchQuery}
-                onChange={handleSearchChange}
-                className="bg-transparent text-white placeholder-gray-300 focus:outline-none w-36"
-              />
-              <button type="submit" className="ml-2 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
-            </form>
-            
-            {/* Account */}
+          {/* Right side icons - always visible */}
+          <div className="hidden md:flex items-center space-x-4">
             <Link href="/account" className="text-white hover:text-gray-300">
+              <span className="sr-only">Account</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </Link>
             
-            {/* Wishlist */}
             <Link href="/wishlist" className="text-white hover:text-gray-300">
+              <span className="sr-only">Wishlist</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </Link>
             
-            {/* Cart */}
             <Link href="/cart" className="text-white hover:text-gray-300">
+              <span className="sr-only">Cart</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
             </Link>
-            
-            {/* Mobile menu button - only visible on small screens */}
-            <button className="text-white md:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-[#1a1a1a] border-t border-gray-700">
+          <div className="px-4 pt-2 pb-4 space-y-1">
+            <Link href="/tshirt-top" 
+              className="block py-2 text-white hover:bg-gray-800 rounded px-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              TSHIRT
+            </Link>
+            <Link href="/tshirt-top" 
+              className="block py-2 text-white hover:bg-gray-800 rounded px-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              TOP WEAR
+            </Link>
+            <Link href="/night-bottoms" 
+              className="block py-2 text-white hover:bg-gray-800 rounded px-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              NIGHT PANT
+            </Link>
+            <Link href="/girls-wear" 
+              className="block py-2 text-white hover:bg-gray-800 rounded px-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              CHILD WEAR
+            </Link>
+            <Link href="/co-ord-sets" 
+              className="block py-2 text-white hover:bg-gray-800 rounded px-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              CO-ORD SETS
+            </Link>
+            <Link href="/night-bottoms" 
+              className="block py-2 text-white hover:bg-gray-800 rounded px-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              LADIES NIGHT DRESS
+            </Link>
+            
+            {/* Mobile icons */}
+            <div className="flex space-x-4 mt-4 border-t border-gray-700 pt-4">
+              <Link href="/account" 
+                className="text-white hover:text-gray-300"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Account</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </Link>
+              
+              <Link href="/wishlist" 
+                className="text-white hover:text-gray-300"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Wishlist</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </Link>
+              
+              <Link href="/cart" 
+                className="text-white hover:text-gray-300"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Cart</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

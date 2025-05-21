@@ -6,51 +6,51 @@ import Image from 'next/image';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#CDCDCD] text-[rgb(35,32,30)] pt-12 pb-4">
+    <footer className="bg-[#CDCDCD] text-[rgb(35,32,30)] pt-8 md:pt-12 pb-4">
       {/* Main Footer */}
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {/* About Section */}
           <div>
-            <h4 className="text-sm font-semibold uppercase mb-4 text-[rgb(35,32,30)]">ABOUT</h4>
-            <ul className="space-y-2">
-              <li><Link href="/contact" className="text-sm hover:underline">Contact Us</Link></li>
-              <li><Link href="/about" className="text-sm hover:underline">About Us</Link></li>
-              <li><Link href="/careers" className="text-sm hover:underline">Careers</Link></li>
-              <li><Link href="/stories" className="text-sm hover:underline">NPlusOne Stories</Link></li>
-              <li><Link href="/press" className="text-sm hover:underline">Press</Link></li>
-              <li><Link href="/info" className="text-sm hover:underline">Corporate Information</Link></li>
+            <h4 className="text-sm font-semibold uppercase mb-3 md:mb-4 text-[rgb(35,32,30)]">ABOUT</h4>
+            <ul className="space-y-1.5 md:space-y-2">
+              <li><Link href="/contact" className="text-xs md:text-sm hover:underline">Contact Us</Link></li>
+              <li><Link href="/about" className="text-xs md:text-sm hover:underline">About Us</Link></li>
+              <li><Link href="/careers" className="text-xs md:text-sm hover:underline">Careers</Link></li>
+              <li><Link href="/stories" className="text-xs md:text-sm hover:underline">NPlusOne Stories</Link></li>
+              <li><Link href="/press" className="text-xs md:text-sm hover:underline">Press</Link></li>
+              <li><Link href="/info" className="text-xs md:text-sm hover:underline">Corporate Information</Link></li>
             </ul>
           </div>
 
           {/* Help Section */}
           <div>
-            <h4 className="text-sm font-semibold uppercase mb-4 text-[rgb(35,32,30)]">HELP</h4>
-            <ul className="space-y-2">
-              <li><Link href="/payments" className="text-sm hover:underline">Payments</Link></li>
-              <li><Link href="/shipping" className="text-sm hover:underline">Shipping</Link></li>
-              <li><Link href="/returns" className="text-sm hover:underline">Cancellation & Returns</Link></li>
-              <li><Link href="/faq" className="text-sm hover:underline">FAQ</Link></li>
+            <h4 className="text-sm font-semibold uppercase mb-3 md:mb-4 text-[rgb(35,32,30)]">HELP</h4>
+            <ul className="space-y-1.5 md:space-y-2">
+              <li><Link href="/payments" className="text-xs md:text-sm hover:underline">Payments</Link></li>
+              <li><Link href="/shipping" className="text-xs md:text-sm hover:underline">Shipping</Link></li>
+              <li><Link href="/returns" className="text-xs md:text-sm hover:underline">Cancellation & Returns</Link></li>
+              <li><Link href="/faq" className="text-xs md:text-sm hover:underline">FAQ</Link></li>
             </ul>
           </div>
 
           {/* Consumer Policy */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase mb-4 text-[rgb(35,32,30)]">CONSUMER POLICY</h4>
-            <ul className="space-y-2">
-              <li><Link href="/cancellation" className="text-sm hover:underline">Cancellation & Returns</Link></li>
-              <li><Link href="/terms" className="text-sm hover:underline">Terms Of Use</Link></li>
-              <li><Link href="/security" className="text-sm hover:underline">Security</Link></li>
-              <li><Link href="/privacy" className="text-sm hover:underline">Privacy</Link></li>
-              <li><Link href="/sitemap" className="text-sm hover:underline">Sitemap</Link></li>
-              <li><Link href="/grievance" className="text-sm hover:underline">Grievance Redressal</Link></li>
-              <li><Link href="/epr" className="text-sm hover:underline">EPR Compliance</Link></li>
+          <div className="mt-6 sm:mt-0">
+            <h4 className="text-sm font-semibold uppercase mb-3 md:mb-4 text-[rgb(35,32,30)]">CONSUMER POLICY</h4>
+            <ul className="space-y-1.5 md:space-y-2">
+              <li><Link href="/cancellation" className="text-xs md:text-sm hover:underline">Cancellation & Returns</Link></li>
+              <li><Link href="/terms" className="text-xs md:text-sm hover:underline">Terms Of Use</Link></li>
+              <li><Link href="/security" className="text-xs md:text-sm hover:underline">Security</Link></li>
+              <li><Link href="/privacy" className="text-xs md:text-sm hover:underline">Privacy</Link></li>
+              <li><Link href="/sitemap" className="text-xs md:text-sm hover:underline">Sitemap</Link></li>
+              <li><Link href="/grievance" className="text-xs md:text-sm hover:underline">Grievance Redressal</Link></li>
+              <li><Link href="/epr" className="text-xs md:text-sm hover:underline">EPR Compliance</Link></li>
             </ul>
           </div>
 
           {/* Contact Information */}
-          <div className="md:col-span-1">
-            <div className="mb-6">
+          <div className="mt-6 sm:mt-0">
+            <div className="mb-4 md:mb-6">
               <h4 className="text-sm font-semibold uppercase mb-2 text-[rgb(35,32,30)]">Mail Us:</h4>
               <p className="text-xs leading-relaxed">
                 NPlusOne Internet Private Limited,<br />
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Social Media & Bottom Info */}
-        <div className="border-t border-[rgb(35,32,30)] border-opacity-20 mt-8 pt-6 text-xs flex flex-col md:flex-row items-center justify-between">
+        <div className="border-t border-[rgb(35,32,30)] border-opacity-20 mt-6 md:mt-8 pt-4 md:pt-6 text-xs flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center space-x-4 mb-4 md:mb-0">
             <span className="text-[rgb(35,32,30)]">Social:</span>
             <a href="https://www.facebook.com/nplusonefashion" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -104,11 +104,11 @@ const Footer: React.FC = () => {
             </a>
           </div>
           
-          <div className="text-[rgb(35,32,30)]">© 2007-{new Date().getFullYear()} NPlusOne.com</div>
+          <div className="text-center md:text-right text-[rgb(35,32,30)] my-3 md:my-0">© 2007-{new Date().getFullYear()} NPlusOne.com</div>
           
-          <div className="flex items-center mt-4 md:mt-0">
+          <div className="flex items-center justify-center md:justify-end">
             {/* Payment Method Icons */}
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-1.5 justify-center">
               {[
                 { name: 'Visa', src: '/images/visa.png' },
                 { name: 'Mastercard', src: '/images/mastercard.png' },
@@ -117,8 +117,8 @@ const Footer: React.FC = () => {
                 { name: 'Diners Club', src: '/images/diners-club.png' },
                 { name: 'RuPay', src: '/images/rupay.png' }
               ].map((payment) => (
-                <div key={payment.name} className="h-5 w-8 bg-white rounded-sm p-0.5 flex items-center justify-center">
-                  <span className="text-[8px] text-gray-800 font-bold">{payment.name}</span>
+                <div key={payment.name} className="h-4 md:h-5 w-6 md:w-8 bg-white rounded-sm p-0.5 flex items-center justify-center">
+                  <span className="text-[6px] md:text-[8px] text-gray-800 font-bold">{payment.name}</span>
                 </div>
               ))}
             </div>
@@ -128,18 +128,18 @@ const Footer: React.FC = () => {
 
       {/* Bottom Links */}
       <div className="border-t border-[rgb(35,32,30)] border-opacity-20 mt-4 pt-4">
-        <div className="container mx-auto px-4 flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs text-[rgb(35,32,30)]">
+        <div className="container mx-auto px-4 flex flex-wrap justify-center gap-x-4 sm:gap-x-8 gap-y-2 text-[10px] md:text-xs text-[rgb(35,32,30)]">
           <Link href="/seller" className="hover:underline flex items-center">
-            <span className="mr-2">📦</span> Become a Seller
+            <span className="mr-1 md:mr-2">📦</span> Become a Seller
           </Link>
           <Link href="/advertise" className="hover:underline flex items-center">
-            <span className="mr-2">📣</span> Advertise
+            <span className="mr-1 md:mr-2">📣</span> Advertise
           </Link>
           <Link href="/giftcards" className="hover:underline flex items-center">
-            <span className="mr-2">🎁</span> Gift Cards
+            <span className="mr-1 md:mr-2">🎁</span> Gift Cards
           </Link>
           <Link href="/help" className="hover:underline flex items-center">
-            <span className="mr-2">❔</span> Help Center
+            <span className="mr-1 md:mr-2">❔</span> Help Center
           </Link>
         </div>
       </div>

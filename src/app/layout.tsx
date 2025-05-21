@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 export const metadata: Metadata = {
   title: 'NPlusOne - Women\'s Fashion',
   description: 'Premium women\'s wear shopping platform',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
 };
 
 export default function RootLayout({
@@ -18,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow pt-20 md:pt-24">{children}</main>
         <Footer />
       </body>
     </html>
