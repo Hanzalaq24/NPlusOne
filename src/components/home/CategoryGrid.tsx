@@ -15,12 +15,12 @@ const CategoryGrid: React.FC<CategoryGridProps> = ({ categories }) => {
         <Link key={index} href={category.link}>
           <div className="relative border-4 border-[#CDCDCD] rounded-lg overflow-hidden">
             <img 
-              src={category.image === '/images/categories/tshirt.jpg' ? 'https://placehold.co/600x400/gray/white?text=T-Shirt' : 
-                  category.image === '/images/categories/topwear.jpg' ? 'https://placehold.co/600x400/gray/white?text=Top+Wear' :
-                  category.image === '/images/categories/nightpant.jpg' ? 'https://placehold.co/600x400/gray/white?text=Night+Pant' :
-                  category.image === '/images/categories/childwear.jpg' ? 'https://placehold.co/600x400/gray/white?text=Child+Wear' :
-                  category.image === '/images/categories/coordsets.jpg' ? 'https://placehold.co/600x400/gray/white?text=Co-ord+Sets' :
-                  'https://placehold.co/600x400/gray/white?text=Night+Dress'}
+              src={category.image === '/images/categories/tshirt.jpg' ? '/images/categories/Tshirt.jpg' : 
+                  category.image === '/images/categories/topwear.jpg' ? '/images/categories/Tshirt.jpg' :
+                  category.image === '/images/categories/nightpant.jpg' ? '/images/categories/Nightwear.jpg' :
+                  category.image === '/images/categories/childwear.jpg' ? '/images/categories/girl.jpg' :
+                  category.image === '/images/categories/coordsets.jpg' ? '/images/categories/CO-ORD.jpg' :
+                  '/images/categories/Nightwear.jpg'}
               alt={category.alt}
               style={{ width: '394px', height: '270px', objectFit: 'cover' }}
               className="ITC-image image-fluid common-image-component transition-transform duration-300 hover:scale-105"
