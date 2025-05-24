@@ -6,19 +6,36 @@ import Link from 'next/link';
 
 const HeroSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if device is mobile on component mount and when window is resized
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkIsMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIsMobile);
+    
+    // Cleanup event listener
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
   
   // Use local image paths with empty text fields
   const slides = [
     {
-      url: '/images/Hero-img1.jpg',
+      url: isMobile ? '/images/mobile/mobile.jpg' : '/images/slider_1.jpg',
       alt: 'Elegant Women\'s Fashion',
     },
     {
-      url: '/images/Hero-img2.jpg',
+      url: isMobile ? '/images/mobile/Mobile-Heroslider_2.jpg' : '/images/Slider_2.jpg',
       alt: 'Premium Collection',
     },
     {
-      url: '/images/Hero-img3.jpg',
+      url: isMobile ? '/images/mobile/Mobile-Heroslider_3.png' : '/images/slider_3.png',
       alt: 'Stylish Designs',
     },
   ];
@@ -49,7 +66,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
       {/* Hero images */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
@@ -65,7 +82,7 @@ const HeroSlider = () => {
                 src={slide.url}
                 alt={slide.alt}
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
                 priority={index === 0}
               />
             </div>

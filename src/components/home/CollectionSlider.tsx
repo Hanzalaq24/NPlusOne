@@ -60,7 +60,7 @@ const CollectionSlider: React.FC<CollectionSliderProps> = ({ collectionItems }) 
   return (
     <>
       {/* Collection Slider */}
-      <div className="mt-8 mb-8 overflow-hidden relative">
+      <div className="mt-8 mb-8 overflow-hidden relative px-6 sm:px-8 md:px-10">
         {/* Prev button */}
         <button 
           onClick={prevSlide}
@@ -72,12 +72,12 @@ const CollectionSlider: React.FC<CollectionSliderProps> = ({ collectionItems }) 
           </svg>
         </button>
         
-        <div className="flex justify-center gap-2 md:gap-4 lg:gap-6">
+        <div className="flex justify-center sm:justify-between items-center gap-2 md:gap-4 lg:gap-6 w-full">
           {getCurrentItems().map((item, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div key={index} className="flex flex-col items-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-1 sm:px-2">
               <Link href={item.link}>
                 <div className="relative rounded-full overflow-hidden border-4 border-[#CDCDCD] w-full">
-                  <div className="aspect-[3/4] w-[150px] xs:w-[180px] sm:w-[200px] md:w-[230px] lg:w-[273px]">
+                  <div className="aspect-[3/4] w-full max-w-[273px] mx-auto">
                     <img 
                       src={item.image}
                       alt={item.alt}

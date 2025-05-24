@@ -9,6 +9,10 @@ export interface Product {
   link: string;
   alt: string;
   badge?: string;
+  description?: string;
+  colors?: Array<{name: string, color: string}>;
+  sizes?: Array<string>;
+  thumbnails?: Array<{url: string, alt: string}>;
 }
 
 // Category interface for category cards

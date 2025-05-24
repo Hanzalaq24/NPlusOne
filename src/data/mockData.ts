@@ -96,14 +96,25 @@ export const collectionItems: CollectionItem[] = [
 export const recommendedProducts: Product[] = [
   {
     id: 1,
-    title: 'Sage Green Embroidered Straight Kurta Set',
+    title: 'OFF-WHITE AND BLACK COTTON PRINTED TIERED DRESS',
     image: 'https://placehold.co/600x800/olive/white?text=Sage+Green',
-    price: '₹1,819',
-    originalPrice: '₹2,599',
+    price: '₹3,999',
+    originalPrice: '₹5,999',
     discount: '30% OFF',
     link: '/product/1',
-    alt: 'Sage Green Embroidered Straight Kurta Set',
-    badge: 'Sale'
+    alt: 'Off-White and Black Cotton Printed Tiered Dress',
+    badge: 'Sale',
+    description: 'This elegant piece features premium cotton fabric with intricate printed details. Perfect for both casual and formal occasions.',
+    colors: [
+      { name: 'Off-White-Black', color: '#f8f4e3' }
+    ],
+    sizes: ['32', '34', '36', '38', '40', '42'],
+    thumbnails: [
+      { url: 'https://placehold.co/600x800/olive/white?text=Sage+Green', alt: 'Front view' },
+      { url: 'https://placehold.co/600x800/olive/white?text=Sage+Green+Back', alt: 'Back view' },
+      { url: 'https://placehold.co/600x800/olive/white?text=Sage+Green+Side', alt: 'Side view' },
+      { url: 'https://placehold.co/600x800/olive/white?text=Sage+Green+Detail', alt: 'Detail view' }
+    ]
   },
   {
     id: 2,
@@ -111,7 +122,18 @@ export const recommendedProducts: Product[] = [
     image: 'https://placehold.co/600x800/pink/white?text=Pink+Floral',
     price: '₹5,995',
     link: '/product/2',
-    alt: 'Pink Cotton Floral Strappy Straight Suit Set'
+    alt: 'Pink Cotton Floral Strappy Straight Suit Set',
+    description: 'Beautiful pink cotton suit set featuring floral prints and a comfortable strappy design.',
+    colors: [
+      { name: 'Pink-Floral', color: '#ffb6c1' }
+    ],
+    sizes: ['32', '34', '36', '38', '40', '42'],
+    thumbnails: [
+      { url: 'https://placehold.co/600x800/pink/white?text=Pink+Floral', alt: 'Front view' },
+      { url: 'https://placehold.co/600x800/pink/white?text=Pink+Floral+Back', alt: 'Back view' },
+      { url: 'https://placehold.co/600x800/pink/white?text=Pink+Floral+Side', alt: 'Side view' },
+      { url: 'https://placehold.co/600x800/pink/white?text=Pink+Floral+Detail', alt: 'Detail view' }
+    ]
   },
   {
     id: 3,
